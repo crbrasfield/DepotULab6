@@ -19,12 +19,14 @@ var library = (function() {
 	  	    WithSeconds: function(){
                   var date = new Date();
                   var time = date.toLocaleTimeString();
-                                    console.log(time);
+                  console.log(time);
                   return time;
                   
               },
 	   	    WithOutSeconds: function() {
-
+                  var date = new Date();
+                  var time = date.toLocaleTimeString();
+                  
                }
 		  }
 		})(),
