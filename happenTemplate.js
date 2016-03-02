@@ -8,6 +8,7 @@ var library = (function() {
         },
 		UnixMillisecond: function(){
             var timeStamp = Date.now();
+            console.log(timeStamp)
             return timeStamp;
         }
 	  }
@@ -32,8 +33,23 @@ var library = (function() {
 		})(),
 		MDY: (function(){
 	  	  return {
-		    Numeral: function(){},
-			Name: function(){}
+		    Numeral: function(){
+                var date = new Date()
+                var monthDay = date.getDay() -1;
+                var month = date.getMonth() +1;
+                var year = date.getFullYear();
+                var mdy = String(month +'/'+ monthDay +'/'+ year);
+                return mdy;
+            },
+			Name: function(){
+                               var date = new Date()
+                var monthDay = date.getDay() -1;
+                var month = date.getMonth();
+                var year = date.getFullYear();
+                var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                var mdy = String(monthNames[month] +' '+ monthDay +', '+ year);
+                return mdy;
+            }
 		  }
 		  })(),
 		}
@@ -129,6 +145,7 @@ var library = (function() {
                 var date = new Date();
                 var day = date.getDay() -1;
                 return String(dayNames[day].slice(0,2));
+                
             },
 			WeekOfYear: function(){
                 
