@@ -24,10 +24,23 @@ var library = (function() {
                   return time;
                   
               },
+              //////////////j;df;gn;ejgn;dfjgo;dfhfjgliauhgfaionulhfcgapmihvoaixulkhdjbcnoiluakshdjhlculh
 	   	    WithOutSeconds: function() {
                   var date = new Date();
-                  var time = date.toLocaleTimeString();
+                  var hours = date.getHours();
+                  var minute = date.getMinutes();
+                  var afternoon = String(date.getHours()-12);
+                  var ampm = (hours >= 12) ? "PM" : "AM";
                   
+                  
+                  
+                if (hours > 12) {
+                    hours =  afternoon;
+                } else {
+                    hours = hours;
+                }
+                  
+                  return hours + ':' + minute + ' ' + ampm;
                }
 		  }
 		})(),
@@ -178,7 +191,9 @@ var library = (function() {
                             } else {
                                 return String(monthDay);
                             }
-                    }
+                            
+                        }
+                        
 				}
 			})(),
 			MonthNumber: function(){
@@ -238,6 +253,37 @@ var library = (function() {
             }
 		}
 	})(),
-	Defaults: function(){}
+	Defaults: function(){
+        var date = new Date();
+        var year = date.getFullYear();
+        var monthDay = date.getDay() +1;
+        var month = date.getMonth() -1;
+        var hours = date.getHours();
+        var minute = date.getMinutes();
+        var second = date.getSeconds();
+        
+        
+            if (month < 10) {
+                    month = ('0'+ month);
+                    } else {
+                    month = (month);
+                    }
+        
+            if (monthDay < 10) {
+                 monthDay = ('0' + monthDay);
+                } else {
+                 monthDay = (monthDay);
+                };
+        console.log(monthDay);
+                        
+        
+        
+        
+        
+        
+        
+        
+        return year + '-' + monthDay + '-' + month + 'T' + hours + ':' + minute + ':' + second ;
+    }
   }
 })();
